@@ -10,7 +10,7 @@ STATIC_DIR = BASE_DIR.joinpath('static')
 MEDIA_DIR = BASE_DIR.joinpath('media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-c-82a5femnh#lx9k+q*s!69njdj^i45l7ypa(&hdwngd2l)j&c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -137,13 +137,13 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'app_auth.User'
 
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# EMAIL_USE_TLS = True
+# # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
