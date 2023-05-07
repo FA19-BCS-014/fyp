@@ -3,34 +3,24 @@ import StoryBg from "../../assets/svgs/story-bg.svg"
 import MemberCard from "./memberCard/MemberCard"
 import RoadmapCard from "./roadmapCard/RoadmapCard"
 import StoryPlan from "./storyPlan/StoryPlan"
+import hamza from '../../assets/images/hamza.jpeg'
+import talha from '../../assets/images/talha.jpeg'
 
 const About = () => {
-  document.title = "HourlyFinder | About"
+  document.title = "JOBGURU | About"
 
   const teamMembersInfo = [
     {
       id: 1,
-      name: "Narayan Ranjan Chakraborty",
-      designation: "Supervisor",
-      image: "/images/aboutPage/team-3.jpg",
+      name: "Talha Tariq",
+      designation: "DEVELOPER",
+      image: talha,
     },
     {
       id: 2,
-      name: "Ms. Subhenur Latif",
-      designation: "Co-Supervisor",
-      image: "/images/aboutPage/team-4.jpg",
-    },
-    {
-      id: 3,
-      name: "Sajeeb Debnath",
-      designation: "Team Member",
-      image: "/images/aboutPage/team-1.jpg",
-    },
-    {
-      id: 4,
-      name: "Rashed Ahmed",
-      designation: "Team Member",
-      image: "/images/aboutPage/team-2.jpg",
+      name: "Malik Hamza Nadeem",
+      designation: "DEVELOPER",
+      image: hamza,
     },
   ]
 
@@ -83,7 +73,7 @@ const About = () => {
     future_plan: {
       title: "Future Plans",
       description:
-        "Hourly-Finder platform started as a project for our university's final year defense, but we had more effective plans for the project from the beginning. We will work hard in the future to deliver the platform to each and every person in our country so that they can get the most result from it.",
+        "JOBGURU platform started as a project for our university's final year defense, but we had more effective plans for the project from the beginning. We will work hard in the future to deliver the platform to each and every person in our country so that they can get the most result from it.",
       img: FutureBg,
     },
   }
@@ -92,9 +82,9 @@ const About = () => {
     <div>
       <div className='intro-area center-flex mt-70'>
         <div className='intro-text'>
-          <h1 className='intro-heading'>Hourly Finder</h1>
+          <h1 className='intro-heading'>JOBGURU</h1>
           <p>
-            A project by team CodeDamn and <br />a platform to find hourly-based jobs nearby via live
+            A project by team (Talha & Hamza) and <br />a platform to find hourly-based jobs nearby via live
             location.
           </p>
         </div>
@@ -123,17 +113,7 @@ const About = () => {
 
       <StoryPlan story={stories_plan.future_plan} order='order-first' />
 
-      <div className='roadmap-area center-flex'>
-        <div className='roadmap-content'>
-          <h3 className='roadmap-heading'>Road Map</h3>
-
-          <div className='roadmap-cards'>{roadmap}</div>
-          <div className='roadmap-road'>
-            <div className='roadmap-progress'></div>
-          </div>
-        </div>
-      </div>
-    </div>
+       </div>
   )
 }
 

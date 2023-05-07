@@ -8,26 +8,26 @@ const CitySection = () => {
   const locations = [
     {
       id : 1,
-      name : "Dhaka",
-      code_name: 'dhaka',
+      name : "FEDERAL",
+      code_name: 'FEDERAL',
       mapPhoto : "/images/homepage/cities/dhaka.png"
     },
     {
       id : 2,
-      name : "Chittagong",
-      code_name: 'chittagong',
+      name : "SINDH",
+      code_name: 'SINDH',
       mapPhoto : "/images/homepage/cities/chittagong.png"
     },
     {
       id : 3,
-      name : "Rajshahi",
-      code_name: 'rajshahi',
+      name : "BALOCHISTAN",
+      code_name: 'BALOCHISTAN',
       mapPhoto : "/images/homepage/cities/rajshahi.png"
     },
     {
       id : 4,
-      name : "Sylhet",
-      code_name: 'sylhet',
+      name : "KPK",
+      code_name: 'KPK',
       mapPhoto : "/images/homepage/cities/sylhet.png"
     }
   ]

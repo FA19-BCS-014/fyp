@@ -3,7 +3,7 @@ import AllBlog from './allBlogSection/AllBlog'
 import BlogSidebarSection from './blogSidebarSection/BlogSidebarSection'
 
 const Blogs = () => {
-	document.title = 'HourlyFinder | Blogs'
+	document.title = 'JOBGURU | Blogs'
 	return (
 		<div>
 			{/* <!-- ====================Blog Content Area Start ==================== --> */}

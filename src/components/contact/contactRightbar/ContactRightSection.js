@@ -21,21 +21,21 @@ const ContactRightSection = () => {
                                 className='iconify'
                                 data-icon='ic:round-local-phone'
                             ></span>
-                            880 1610916343
+                            0316 3330706
                         </li>
                         <li>
                             <span
                                 className='iconify'
                                 data-icon='clarity:email-solid'
                             ></span>
-                            Sajeedebnath.cse@gmail.com
+                            talhatariq2718@gmail.com
                         </li>
                         <li>
                             <span
                                 className='iconify'
                                 data-icon='fluent:location-28-filled'
                             ></span>
-                            Kalabagan, Dhaka
+                            Pakistan, Islamabad
                         </li>
                     </ul>
                 </nav>
@@ -84,7 +84,7 @@ const ContactRightSection = () => {
             </div>
             <div className='about-hourlyfinder mt-30'>
                 <div className='section-title'>
-                    <h3>About HourlyFinders</h3>
+                    <h3>About JOBGURU</h3>
                 </div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

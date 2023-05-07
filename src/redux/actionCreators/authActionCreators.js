@@ -11,8 +11,7 @@ import {
 } from '../actionTypes/authActionTypes'
 import { userDataReset, userFetch } from './userActionCreators'
 
-const url = process.env.REACT_APP_BACKEND_SERVER
-
+const url =" https://web-production-8c4db.up.railway.app"
 export const clearAuthErrors = () => {
 	return {
 		type: AUTH_ERROR_CLEAR,

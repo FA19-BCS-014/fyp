@@ -7,22 +7,22 @@ const CategorySection = () => {
 
   const categorires = [
     {
-      name : "Grocery Store Helper",
+      name : "Front-end Developer",
       id : "1",
       icon : ""
     },
     {
-      name : "Resturant Service & Hospitlity",
+      name : "Back-end Developer",
       id : "2",
       icon : ""
     },
     {
-      name : "Home Service & Cleaning",
+      name : "Moblie Application Developer",
       id : "3",
       icon : ""
     },
     {
-      name : "Car Wash & Cleaning",
+      name : "Finance",
       id : "4",
       icon : ""
     },

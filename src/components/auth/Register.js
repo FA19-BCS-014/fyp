@@ -44,21 +44,32 @@ const Register = () => {
   }
 
   const onSubmitHandle = async (values) => {
-    console.log("Registration")
-    dispatch(
-      authSignUp(
-        values.firstName,
-        values.lastName,
-        values.email,
-        values.username,
-        values.password,
-        values.accountType
-      )
-    )
-    let timer = setTimeout(() => {
-      dispatch(clearAuthErrors())
-    }, 5000)
-    clearTimeout(timer)
+    console.log("Registration") 
+    const url = "https://portal-production-7595.up.railway.app/users/signup/";
+    const payload ={
+      "email" : values.email,
+      "password" : values.password,
+      "first_name" : values.firstName,
+      "last_name" : values.lastName,
+      "user_type" : values.accountType
+    }
+    console.log(payload)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        };
+
+        const response = await fetch(url, requestOptions);
+        const responseData = await response.json();
+        // console.log('resss:',responseData.data)
+        if (responseData.error === false && responseData.data.token) {
+            localStorage.setItem("token", responseData.data.token);
+            localStorage.setItem("user",responseData.data.first_name)
+            localStorage.setItem("test",JSON.stringify(responseData.data))
+        }
+        return responseData
+
   }
 
   const validateHandle = (values) => {

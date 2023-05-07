@@ -3,7 +3,7 @@ import ContactRightSection from './contactRightbar/ContactRightSection'
 import FaqSection from './faqSection/FaqSection'
 
 const Contact = () => {
-	document.title = 'HourlyFinder | Contact Us'
+	document.title = 'JOBGURU | Contact Us'
 
 	return (
 		<div className='contact-area mt-70'>

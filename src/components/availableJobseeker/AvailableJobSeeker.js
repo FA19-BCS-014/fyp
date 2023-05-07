@@ -7,7 +7,7 @@ import SeekerSearchBar from './elements/SeekerSearchBar'
 const url = process.env.REACT_APP_BACKEND_SERVER
 
 const AvailableJobSeeker = () => {
-	document.title = 'HourlyFinder | Find Jobseekers'
+	document.title = 'JOBGURU | Find Jobseekers'
 
 	const [seekerData, setSeekerData] = useState(null)
 

@@ -38,11 +38,11 @@ const JobFilterArea = () => {
           <form action=''>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Home Service</label>
+              <label htmlFor=''>Project Managment</label>
             </div>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Restrurant Service</label>
+              <label htmlFor=''>Content Writter</label>
             </div>
             <div>
               <input type='checkbox' />
@@ -59,19 +59,19 @@ const JobFilterArea = () => {
           <form action=''>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Dhaka</label>
+              <label htmlFor=''>Islamabad</label>
             </div>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Chittagong</label>
+              <label htmlFor=''>Karachi</label>
             </div>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Rajshahi</label>
+              <label htmlFor=''>Lahore</label>
             </div>
             <div>
               <input type='checkbox' />
-              <label htmlFor=''>Sylhet</label>
+              <label htmlFor=''>Faisalabad</label>
             </div>
           </form>
         </div>

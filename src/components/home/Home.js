@@ -9,7 +9,7 @@ import NewsLetterSection from './newsletterSection/NewsLetterSection'
 import PopUpChat from '../popUpChat/PopUpChat'
 
 const Home = () => {
-	document.title = 'HourlyFinder | Home'
+	document.title = 'JOBGURU | Home'
 
 	return (
 		<div>

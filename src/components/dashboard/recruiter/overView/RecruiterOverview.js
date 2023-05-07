@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 
 const RecruiterOverview = () => {
 	document.title = 'HourlyFinder | Dashboard'
-	const user = useSelector(state => state.user.user)
+	const user = JSON.parse(window.localStorage.getItem("user"))
+	console.log(user.user_type)
+	
 	return (
 		<div className='dashboard-main'>
 			<h3 className='dashboard-title'>Overview</h3>

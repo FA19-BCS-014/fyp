@@ -91,7 +91,7 @@ const Header = () => {
         <div className='logo'>
           <Animate />
           <Link to='/' onClick={scrollToZero}>
-            <img src={Logo} alt='Logo' />
+            
           </Link>
         </div>
         <button className='menu-trigger' onClick={() => setIsNavExpan(!isNavExpan)}>

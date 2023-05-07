@@ -5,7 +5,7 @@ import DashboardNavigation from './common/DashboardNavigation'
 import DashboradRightBar from './common/DashboradRightBar'
 
 const Dashboard = () => {
-	const user = useSelector(state => state.user.user)
+	const user = JSON.parse(window.localStorage.getItem("user"))
 	const profile = useSelector(state => state.user.profile)
 	const [dashboardToggle, setDashboardToggle] = useState(false)
 	const { pathname } = useLocation()

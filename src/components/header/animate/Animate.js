@@ -1,7 +1,8 @@
 import Animated from '../../../assets/logos/animated.svg'
+import logo from '../../../assets/logos/icon.JPG'
 
 const Animate = () => {
-	return <object type='image/svg+xml' data={Animated}>animate</object>
+	return <img height='30px' src={logo} alt='logo' />
 }
 
 export default Animate

@@ -35,12 +35,29 @@ const Login = (props) => {
 
   const onSubmitHandle = async (values) => {
     console.log("Login")
-    await props.authLogin(values.email, values.password)
-    let timer = setTimeout(() => {
-      clearAuthErrors()
-    }, 5000)
-    clearTimeout(timer)
-    if (redirectPath !== undefined) navigate(redirectPath, { replace: true })
+    const url = "https://portal-production-7595.up.railway.app/users/login/";
+    const payload ={
+      "email" : values.email,
+      "password" : values.password,
+    }
+    console.log(payload)
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        };
+
+        const response = await fetch(url, requestOptions);
+        const responseData = await response.json();
+        // console.log('resss:',responseData.data)
+        if (responseData.error === false && responseData.data.token) {
+            localStorage.setItem("token", responseData.data.token);
+            localStorage.setItem("user",JSON.stringify(responseData.data))
+        }
+        if (responseData.error === false){
+          navigate('/dashboard')
+        }
+        
   }
 
   const validateHandle = (values) => {

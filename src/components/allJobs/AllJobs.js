@@ -4,7 +4,7 @@ import AllJobContent from "./jobContent/AllJobContent"
 import JobSearchBar from "./searchBar/JobSearchBar"
 
 const AllJobs = () => {
-  document.title = "HourlyFinder | All Jobs"
+  document.title = "JOBGURU | All Jobs"
   const [searchKeyword, setSearchKeyword] = useState({
     title: "",
     location: "",

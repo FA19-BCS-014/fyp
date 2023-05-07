@@ -27,7 +27,7 @@ const LeftContent = ({ page }) => {
     <div className="registration-left">
       <div className="registration-left-content">
         <div className="normal-logo">
-          <h3>HourlyFinder</h3>
+          <h3>JOBGURU</h3>
         </div>
         <div className="registration-left-text">
           <h2>The most exciting hourly-based jobs are awaiting...</h2>

@@ -8,31 +8,31 @@ const FeedbackSection = () => {
   // Feedback Component Data Start
   const user_feedbacks = [
     {
-      author_name: "Sajeeb Debnath",
+      author_name: "Hammad",
       position: "Full Stack Developer",
-      photo: "/images/homepage/users/user-1.jpg",
-      comments: "..found my dream job using Hourly-Finder, recomended..",
+      photo: "/images/homepage/users/user-5.jpg",
+      comments: "..found my dream job using JOBGURU, recomended..",
     },
     {
       author_name: "Rashed Ahmed",
       position: "React & Django Developer",
-      photo: "/images/homepage/users/user-2.jpg",
+      photo: "/images/homepage/users/user-5.jpg",
       comments: "..user friendly and very easy to find jobs that suits me..",
     },
     {
-      author_name: "Samiul Siddque Shakil",
+      author_name: "Farman",
       position: "Graphics Designer",
-      photo: "/images/homepage/users/user-3.jpg",
+      photo: "/images/homepage/users/user-5.jpg",
       comments: "..clear and high quality graphical components, low size..",
     },
     {
-      author_name: "Yeamin Afrin",
+      author_name: "Akbar",
       position: "UI/UX Designer",
-      photo: "/images/homepage/users/user-4.jpg",
+      photo: "/images/homepage/users/user-5.jpg",
       comments: "..very attractive, clean and functional user experience..",
     },
     {
-      author_name: "Sajibe Kanti",
+      author_name: "Usman",
       position: "Cyber Security Expert",
       photo: "/images/homepage/users/user-5.jpg",
       comments: "..highly secure web application, cant't find any bugs..",

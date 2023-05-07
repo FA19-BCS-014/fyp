@@ -1,6 +1,7 @@
 import FooterMenu from './menu/FooterMenu'
 import {FaHeart} from 'react-icons/fa'
 import FooterLogo from '../../assets/logos/logo-footer.svg'
+import logo from '../../assets/logos/icon.JPG'
 
 const Footer = () => {
 
@@ -73,19 +74,19 @@ const Footer = () => {
 			title: "Contact US",
 			lists : [
 				{
-					name : "+880 12345678",
+					name : "+923163330706",
 					link : "#"
 				},
 				{
-					name : "support@hourlyfinder.com",
+					name : "talhatariq2718@gmail.com",
 					link : "#"
 				},
 				{
-					name : "37/B, Lake Circus Road",
+					name : "Pakistan",
 					link : "#"
 				},
 				{
-					name : "Kalabagan, Dhaka-1207",
+					name : "Islamabad",
 					link : "#"
 				}
 			]
@@ -113,17 +114,17 @@ const Footer = () => {
 					<div className='row d-flex align-items-center'>
 						<div className='col-lg-4'>
 							<div className='footer-logo'>
-								<img height='30px' src={FooterLogo} alt='logo' />
+								<img height='30px' src={logo} alt='logo' />
 							</div>
 						</div>
 						<div className='col-lg-4'>
 							<div className='copyright-text'>
-								<p>Made with <FaHeart color='red'/> by Team-CodeDamn</p>
+								<p>Made by Team (Talha & Hamza)</p>
 							</div>
 						</div>
 						<div className='col-lg-4'>
 							<div className='copyright-text'>
-								<p>Copyright 2021 &copy; Codedamn. All right reserved.</p>
+								<p>Copyright 2023 &copy; </p>
 							</div>
 						</div>
 					</div>
