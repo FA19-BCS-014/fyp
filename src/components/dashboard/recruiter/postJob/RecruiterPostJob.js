@@ -26,6 +26,8 @@ const RecruiterPostJob = () => {
   const creatingJob = useSelector((state) => state.job.creatingJob);
   const createJobSuccess = useSelector((state) => state.job.createJobSuccess);
   const createJobFailed = useSelector((state) => state.job.createJobFailed);
+	const user = JSON.parse(window.localStorage.getItem("user"))
+
 
   useEffect(() => {
     if (image) {
@@ -72,8 +74,38 @@ const RecruiterPostJob = () => {
     setImage(event.currentTarget.files[0]);
   };
 
-  const onSubmitHandle = (values) => {
-    dispatch(jobCreate(values, image, recruiterId));
+  const onSubmitHandle =async  (values) => {
+    console.log("Registration") 
+    const url = "https://portal-production-7595.up.railway.app/job/";
+    const payload ={
+      title: values.title,
+    type: values.type,
+    salary: values.salary,
+    level: values.level,
+    vacancy: values.vacancy,
+    starting: values.starting,
+    duration: values.duration,
+    language: values.language,
+    skill: values.skill,
+    keyword: values.keyword,
+    location: values.location,
+    map: values.map,
+    overview: values.overview,
+    todo: values.todo,
+    user: user.id,
+    }
+    console.log(payload)
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + window.localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payload),
+    };
+
+        const response = await fetch(url, requestOptions);
+        const responseData = await response.json();
   };
 
   const validateHandle = (values) => {

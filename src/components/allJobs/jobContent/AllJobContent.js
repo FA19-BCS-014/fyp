@@ -7,21 +7,33 @@ import JobBlock from "../../commonComponents/commonBlock/jobBlock/JobBlock"
 import JobBlockSkeleton from "../../commonComponents/skeletons/JobBlockSkeleton"
 import Pagination from "../pagination/Pagination"
 import NoItem from "components/commonComponents/noItem/NoItem"
+import { useState } from "react"
 
 const AllJobContent = ({ finalSearch }) => {
   const dispatch = useDispatch()
-  const allJobsPagination = useSelector((state) => state.job.allJobsPagination)
+  const [allJobsPagination, setAllJobs] = useState([])
   const count = allJobsPagination?.count
 
   console.log(finalSearch)
   const { title, location, type } = finalSearch ? finalSearch : []
 
-  useEffect(() => {
-    dispatch(jobAllPaginationFetch(9))
-  }, [dispatch])
+  useEffect(async () => {
+    const url = "https://portal-production-7595.up.railway.app/job/get-jobs";
+    const requestOptions = {
+      // method: "POST",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + window.localStorage.getItem("token"),
+      },
+      // body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+	  setAllJobs(responseData.data)
+  }, []);
 
-  const jobs = allJobsPagination?.results
-    .filter((job) => {
+  const jobs = allJobsPagination?.filter((job) => {
       if (title === " ") {
         return job
       } else if (job.title?.toLocaleLowerCase().includes(title)) {
@@ -31,7 +43,7 @@ const AllJobContent = ({ finalSearch }) => {
     .filter((job) => {
       if (location === " ") {
         return job
-      } else if (job.company.location?.toLocaleLowerCase().includes(location)) {
+      } else if (job.location?.toLocaleLowerCase().includes(location)) {
         return job
       }
     })

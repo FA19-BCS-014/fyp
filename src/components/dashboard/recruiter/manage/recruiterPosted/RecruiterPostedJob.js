@@ -11,13 +11,13 @@ const RecruiterPostedJob = () => {
   const [recruiterJobs, setRecruiterJobs] = useState([])
 
   useEffect(async () => {
-    const url = "https://portal-production-7595.up.railway.app/users/login/";
+    const url = "https://portal-production-7595.up.railway.app/job/";
     const requestOptions = {
       // method: "POST",
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: "token " + localStorage.getItem("token"),
+        Authorization: "token " + window.localStorage.getItem("token"),
       },
       // body: JSON.stringify(payload),
     };
@@ -46,7 +46,7 @@ const RecruiterPostedJob = () => {
                       </tr>
                     </thead>
                     <tbody className="job-data">
-                      {recruiterJobs.map((job, idx) => (
+                      {recruiterJobs?.map((job, idx) => (
                         <PostedJobBlock key={idx} job={job} />
                       ))}
                     </tbody>

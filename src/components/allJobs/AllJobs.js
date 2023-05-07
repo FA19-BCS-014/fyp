@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import JobFilterArea from "./filterArea/JobFilterArea"
 import AllJobContent from "./jobContent/AllJobContent"
 import JobSearchBar from "./searchBar/JobSearchBar"

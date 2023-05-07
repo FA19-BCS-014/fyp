@@ -6,8 +6,8 @@ import Tags from '../../../commonComponents/tagElement/Tags'
 
 const JobBlock = ({ job }) => {
 	const { title, slug, type, keyword, created } = job
-	const { logo, name, location } = job.company
-	const { username } = job.recruiter.user
+	const { logo, name, location } = job
+	const { username } = job.user
 
 	const jobType = useJobType(type)
 	const timeSince = useTimeSince(DateTime.fromISO(created))
@@ -18,11 +18,11 @@ const JobBlock = ({ job }) => {
 				<Link to={`/user/${username}`}>
 					<img src={logo ? logo : org_logo} alt='logo' className='recruiter-logo' />
 				</Link>
-				<h5 className='recruiter-title'>
+				{/* <h5 className='recruiter-title'>
 					<Link to={`/user/${username}`}>{name.slice(0, 14)}, </Link>
 					<br />
 					<span className='post_time'>{timeSince}</span>
-				</h5>
+				</h5> */}
 			</div>
 			<div className='job-content'>
 				<h3 className='job-title'>

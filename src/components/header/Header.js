@@ -32,14 +32,14 @@ const Header = () => {
       name: "Jobs",
       link: "/jobs",
     },
-    {
-      name: "Hire",
-      link: "/jobseeker",
-    },
-    {
-      name: "Blog",
-      link: "/blogs",
-    },
+    // {
+    //   name: "Hire",
+    //   link: "/jobseeker",
+    // },
+    // {
+    //   name: "Blog",
+    //   link: "/blogs",
+    // },
     {
       name: "About",
       link: "/about",

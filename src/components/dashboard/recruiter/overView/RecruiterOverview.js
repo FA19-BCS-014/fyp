@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const RecruiterOverview = () => {
-	document.title = 'HourlyFinder | Dashboard'
+	document.title = 'JOBGURU | Dashboard'
 	const user = JSON.parse(window.localStorage.getItem("user"))
 	console.log(user.user_type)
 	
