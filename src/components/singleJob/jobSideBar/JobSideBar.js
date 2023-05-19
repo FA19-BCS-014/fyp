@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { FaEnvelope, FaMapMarkerAlt, FaBriefcase } from 'react-icons/fa'
 
 const JobSideBar = props => {
-	const { slug, salary } = props.data.job
+	const { id, salary } = props.data.job
 	const { picture, designation } = props.data.recruiter
 	const { moto, description, logo, location } = props.data.company
 	const { email, username, first_name, last_name } = props.data.user
@@ -13,7 +13,7 @@ const JobSideBar = props => {
 			<div className='application-budget-information sidebar-padding'>
 				<p>Client Budget</p>
 				<h4 className='budget'>Tk. {salary}</h4>
-				<Link to={`/apply/${slug}`} className='btn btn-main'>
+				<Link to={`/apply/${id}`} className='btn btn-main'>
 					Apply Now
 				</Link>
 				<Link to='' className='btn btn-alt'>

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { jobSingleFetch } from "../../redux/actionCreators/jobActionCreators"
@@ -10,12 +10,26 @@ import MostRecentJob from "./mostRecentSection/MostRecentJob"
 
 const SingleJob = () => {
   const dispatch = useDispatch()
-  const singleJob = useSelector((state) => state.job.singleJob)
-  const { job_slug } = useParams()
+  const { id } = useParams()
+  const [singleJob, setAllJobs] = useState({})
+  console.log(id)
 
-  useEffect(() => {
-    dispatch(jobSingleFetch(job_slug))
-  }, [job_slug, dispatch])
+  useEffect(async () => {
+    const url = "https://portal-production-7595.up.railway.app/job/get-jobs/?id="+ id;
+    const requestOptions = {
+      // method: "POST",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token " + window.localStorage.getItem("token"),
+      },
+      // body: JSON.stringify(payload),
+    };
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
+    console.log(responseData)
+	  setAllJobs(responseData.data)
+  }, [singleJob]);
 
   return (
     <>
@@ -23,12 +37,12 @@ const SingleJob = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-8'>
-              {singleJob === null && <JobDetailsSkeleton />}
-              {singleJob !== null && <JobDetails data={singleJob} />}
+              {/* {singleJob === null && <JobDetailsSkeleton />} */}
+              {/* {singleJob !== null && <JobDetails data={singleJob} />} */}
             </div>
             <div className='col-lg-4'>
-              {singleJob === null && <JobSideBarSkeleton />}
-              {singleJob !== null && <JobSideBar data={singleJob} />}
+              {/* {singleJob === null && <JobSideBarSkeleton />}
+              {singleJob !== null && <JobSideBar data={singleJob} />} */}
             </div>
           </div>
         </div>

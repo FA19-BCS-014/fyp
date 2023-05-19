@@ -50,8 +50,8 @@ const App = () => {
 			<Header />
 			<div className='app'>
 				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/jobs' element={<AllJobs />} />
+					<Route path='/' exact element={<Home />}  />
+					<Route path='/jobs' exact element={<AllJobs />} />
 					<Route path='/category' element={<CityCategory />}>
 						<Route path=':id' element={<CityCategory />} />
 					</Route>
@@ -69,7 +69,7 @@ const App = () => {
 					<Route path='/password-reset' element={<PasswordReset />} />
 					<Route path='/password-reset/:uid/:token' element={<PasswordReset />} />
 					{/*  */}
-					<Route path='/job/:job_slug' element={<SingleJob />} />
+					<Route path='/job/:id' element={<SingleJob />} />
 					<Route path='/blog/:blog_slug' element={<SingleBlog />} />
 					{/*  */}
 					<Route path='/jobseeker' element={<AvailableJobSeeker />} />

@@ -35,38 +35,10 @@ const Dashboard = () => {
 				subMenu: null,
 			},
 			{
-				name: 'Message',
-				icon: 'message',
-				link: 'message',
-				subMenu: null,
-			},
-			{
 				name: 'Find Jobseeker',
 				icon: 'find',
 				link: '/jobseeker',
 				subMenu: null,
-			},
-			{
-				name: 'Edit Profile',
-				icon: 'edit',
-				link: '#',
-				subMenu: [
-					{
-						name: 'Profile',
-						icon: 'profile',
-						link: 'edit-profile',
-					},
-					{
-						name: 'Organization',
-						icon: 'about',
-						link: 'edit-details',
-					},
-					{
-						name: 'Address',
-						icon: 'address',
-						link: 'edit-address',
-					},
-				],
 			},
 			{
 				name: 'Post Job',
@@ -80,12 +52,6 @@ const Dashboard = () => {
 				link: 'manage',
 				subMenu: null,
 			},
-			{
-				name: 'Ongoing Job',
-				icon: 'running',
-				link: 'ongoing-job',
-				subMenu: null,
-			},
 		],
 		seekerNavigation: [
 			{
@@ -95,55 +61,15 @@ const Dashboard = () => {
 				subMenu: null,
 			},
 			{
-				name: 'Message',
-				icon: 'message',
-				link: 'message',
-				subMenu: null,
-			},
-			{
-				name: 'Edit Info',
-				icon: 'edit',
-				link: '#',
-				subMenu: [
-					{
-						name: 'Profile',
-						icon: 'profile',
-						link: 'edit-profile',
-					},
-					{
-						name: 'About You',
-						icon: 'about',
-						link: 'edit-details',
-					},
-					{
-						name: 'Address',
-						icon: 'address',
-						link: 'edit-address',
-					},
-				],
-			},
-			{
 				name: 'Find Jobs',
 				icon: 'find',
 				link: '/jobs',
 				subMenu: null,
 			},
 			{
-				name: 'Job Offers',
-				icon: 'offer',
-				link: 'offer',
-				subMenu: null,
-			},
-			{
 				name: 'Application',
 				icon: 'manage',
 				link: 'manage',
-				subMenu: null,
-			},
-			{
-				name: 'Ongoing Job',
-				icon: 'running',
-				link: 'ongoing-job',
 				subMenu: null,
 			},
 		],

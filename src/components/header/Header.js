@@ -137,7 +137,7 @@ const Header = () => {
               {mainMenu.map((menu, index) => {
                 return (
                   <li key={index} onClick={() => setIsNavExpan(!isNavExpan)}>
-                    <NavLink to={menu.link}>{menu.name}</NavLink>
+                    <Link to={menu.link}>{menu.name}</Link>
                   </li>
                 )
               })}

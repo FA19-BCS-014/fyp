@@ -10,7 +10,7 @@ const BlogSection = () => {
   const disptach = useDispatch()
 
   useEffect(() => {
-    disptach(fetchAllBlog())
+    // disptach(fetchAllBlog())
   }, [disptach])
 
   const blogs = allBlogs?.map((blog, index) => {

@@ -56,6 +56,7 @@ const AllJobContent = ({ finalSearch }) => {
     })
 
     .map((job, index) => {
+      console.log(job)
       return (
         <div className='col-lg-4 col-md-4 col-sm-6' key={index}>
           <JobBlock job={job} />

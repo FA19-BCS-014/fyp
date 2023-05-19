@@ -5,10 +5,10 @@ import { useJobType, useTimeSince } from 'hooks/useJobHook'
 import Tags from '../../../commonComponents/tagElement/Tags'
 
 const JobBlock = ({ job }) => {
-	const { title, slug, type, keyword, created } = job
+	const { title, id, type, keyword, created } = job
 	const { logo, name, location } = job
 	const { username } = job.user
-
+	console.log(id)
 	const jobType = useJobType(type)
 	const timeSince = useTimeSince(DateTime.fromISO(created))
 
@@ -26,7 +26,7 @@ const JobBlock = ({ job }) => {
 			</div>
 			<div className='job-content'>
 				<h3 className='job-title'>
-					<Link to={`/job/${slug}`}>
+					<Link to={`/job/${id}`}>
 						<abbr title={title}>{title.slice(0, 40)}</abbr>
 					</Link>
 				</h3>

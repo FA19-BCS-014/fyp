@@ -11,7 +11,6 @@ const JobDetails = ({ data }) => {
 	const imagePath = process.env.REACT_APP_BACKEND_SERVER
 
 	const jobType = useJobType(type)
-	const mapData = latlng.split(',')
 
 	return (
 		<div className='apply-left'>
@@ -56,9 +55,6 @@ const JobDetails = ({ data }) => {
 				<div className='single-job-details'>
 					<h3>Location &amp; Maps</h3>
 					<p>1.2 Km away from your location.</p>
-				</div>
-				<div className='leaflet-map'>
-					<LeafletMap mark={mapData} title={jobType + ' at ' + name} desc={title} />
 				</div>
 			</div>
 		</div>
