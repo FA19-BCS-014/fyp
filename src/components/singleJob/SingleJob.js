@@ -10,6 +10,7 @@ import MostRecentJob from "./mostRecentSection/MostRecentJob";
 import axios from "axios";
 
 const SingleJob = () => {
+  const [userId, setuserId] = useState(false);
   const dispatch = useDispatch();
   const { id } = useParams();
   const [singleJob, setAllJobs] = useState({});

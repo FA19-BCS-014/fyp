@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useId } from "react";
 
 const JobSideBar = ({ data }) => {
+  const [userId, setUserId] = useState(false);
+
+  const getUserId = async () => {
+    const userData = localStorage.getItem("userId");
+    return userData;
+  };
+
+  useEffect(() => {
+    const apiCall = async () => {
+      let data = await getUserId();
+      setUserId(data);
+    };
+    apiCall();
+  }, []);
   // const { id, salary } = props.data.job
   // const { picture, designation } = props.data.recruiter
   // const { moto, description, logo, location } = props.data.company
@@ -13,12 +30,18 @@ const JobSideBar = ({ data }) => {
       <div className="application-budget-information sidebar-padding">
         <p>Client Budget</p>
         <h4 className="budget">PKR. {data?.salary}</h4>
-        <Link to={`/apply/${data?.id}`} className="btn btn-main">
-          Apply Now
-        </Link>
-        <Link to="" className="btn btn-alt">
+        {userId === null || useId === undefined ? (
+          <Link to={`/login`} className="btn btn-main">
+            Login First to apply
+          </Link>
+        ) : (
+          <Link to={`/apply/${data?.id}`} className="btn btn-main">
+            Apply Now
+          </Link>
+        )}
+        {/* <Link to="" className="btn btn-alt">
           Save to wishlist
-        </Link>
+        </Link> */}
       </div>
       <div className="about-recruiter-profile sidebar-padding">
         <h4>About the recruiter</h4>
