@@ -1,27 +1,52 @@
-import ModalYesNo from "components/commonComponents/modals/ModalYesNo"
-import { useEffect, useState } from "react"
-import { Dropdown } from "react-bootstrap"
-import { FaBell } from "react-icons/fa"
-import { useDispatch, useSelector } from "react-redux"
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom"
-import Image from "../../assets/images/user.svg"
-import Logo from "../../assets/logos/logo.svg"
-import useHeaderColor from "../../hooks/useHeaderColor"
-import { userFetch } from "../../redux/actionCreators/userActionCreators"
-import Animate from "./animate/Animate"
+import ModalYesNo from "components/commonComponents/modals/ModalYesNo";
+import { useEffect, useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import { FaBell } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import Image from "../../assets/images/user.svg";
+import Logo from "../../assets/logos/logo.svg";
+import useHeaderColor from "../../hooks/useHeaderColor";
+import { userFetch } from "../../redux/actionCreators/userActionCreators";
+import Animate from "./animate/Animate";
 
 const Header = () => {
-  const [logoutModal, setLogoutModal] = useState(false)
-  const [isNavExpan, setIsNavExpan] = useState(false)
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const token = useSelector((state) => state.auth.token)
-  const user = useSelector((state) => state.user.user)
-  const profile = useSelector((state) => state.user.profile)
-  const picture = profile?.picture
-  const headerColor = useHeaderColor()
-  const [navbar, setNavbar] = useState()
-  const { pathname } = useLocation()
+  const [logoutModal, setLogoutModal] = useState(false);
+  const [isNavExpan, setIsNavExpan] = useState(false);
+  const [join, setJoin] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector((state) => state.auth.token);
+  const user = useSelector((state) => state.user.user);
+  const profile = useSelector((state) => state.user.profile);
+  const picture = profile?.picture;
+  const headerColor = useHeaderColor();
+  const [navbar, setNavbar] = useState();
+  const { pathname } = useLocation();
+
+  const handleLogout = () => {
+    localStorage.clear("user");
+    localStorage.clear("userId");
+    setLogoutModal(true);
+  };
+
+  useEffect(() => {
+    const api = async () => {
+      let user = await getUser();
+      if (user === null || user === undefined) {
+        setJoin(false);
+      } else {
+        setJoin(true);
+      }
+    };
+    api();
+  }, []);
+
+  const getUser = async () => {
+    let user = localStorage.getItem("userId");
+    return user;
+  };
 
   const mainMenu = [
     {
@@ -48,7 +73,7 @@ const Header = () => {
       name: "Contact",
       link: "/contact",
     },
-  ]
+  ];
 
   const STYLES = {
     normal: {
@@ -58,75 +83,76 @@ const Header = () => {
     active: {
       background: "white",
     },
-  }
+  };
 
   useEffect(() => {
     if (token) {
-      dispatch(userFetch())
+      dispatch(userFetch());
     }
-    scrollToZero()
-  }, [pathname, token, dispatch])
+    scrollToZero();
+  }, [pathname, token, dispatch]);
 
   const changeNavbar = () => {
     if (window.scrollY >= 1) {
-      setNavbar(true)
+      setNavbar(true);
     } else {
-      setNavbar(false)
+      setNavbar(false);
     }
-  }
+  };
   const scrollToZero = () => {
-    window.scrollTo(0, 0)
-  }
+    window.scrollTo(0, 0);
+  };
   const logoutAction = () => {
-    navigate("/logout")
-  }
-  window.addEventListener("scroll", changeNavbar)
+    navigate("/logout");
+  };
+  window.addEventListener("scroll", changeNavbar);
 
   return (
     <div
       className={navbar ? "header-top-area active" : "header-top-area"}
       style={navbar ? STYLES.active : STYLES.normal}
     >
-      <div className='navigation'>
-        <div className='logo'>
+      <div className="navigation">
+        <div className="logo">
           <Animate />
-          <Link to='/' onClick={scrollToZero}>
-            
-          </Link>
+          <Link to="/" onClick={scrollToZero}></Link>
         </div>
-        <button className='menu-trigger' onClick={() => setIsNavExpan(!isNavExpan)}>
+        <button
+          className="menu-trigger"
+          onClick={() => setIsNavExpan(!isNavExpan)}
+        >
           {isNavExpan ? (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              aria-hidden='true'
-              role='img'
-              width='1em'
-              height='1em'
-              preserveAspectRatio='xMidYMid meet'
-              viewBox='0 0 1024 1024'
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
+              width="1em"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 1024 1024"
             >
               <path
-                fill='currentColor'
-                d='M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504L738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512L828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496L285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512L195.2 285.696a64 64 0 0 1 0-90.496z'
+                fill="currentColor"
+                d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504L738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512L828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496L285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512L195.2 285.696a64 64 0 0 1 0-90.496z"
               />
             </svg>
           ) : (
             <svg
-              xmlns='http://www.w3.org/2000/svg'
-              aria-hidden='true'
-              role='img'
-              width='1em'
-              height='1em'
-              preserveAspectRatio='xMidYMid meet'
-              viewBox='0 0 24 24'
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              role="img"
+              width="1em"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 24 24"
             >
               <path
-                fill='none'
-                stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
-                d='M4 6h16M4 12h16m-7 6h7'
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
           )}
@@ -139,45 +165,58 @@ const Header = () => {
                   <li key={index} onClick={() => setIsNavExpan(!isNavExpan)}>
                     <Link to={menu.link}>{menu.name}</Link>
                   </li>
-                )
+                );
               })}
             </ul>
           </nav>
-          {token === null ? (
-            <Link to='/login' className='btn btn-main join-us' onClick={() => setIsNavExpan(!isNavExpan)}>
-              Join Us
-            </Link>
-          ) : (
-            <div className='header-icon'>
-              <Link to='/dashboard'>
+          {join ? (
+            <div className="header-icon">
+              <Link to="/dashboard">
                 <span>
                   <FaBell />
                 </span>
               </Link>
 
               <Dropdown>
-                <Dropdown.Toggle as='a'>
-                  <img src={picture ? picture : Image} alt='' />
+                <Dropdown.Toggle as="a">
+                  <img src={picture ? picture : Image} alt="" />
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Link to='/dashboard' onClick={() => setIsNavExpan(!isNavExpan)}>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setIsNavExpan(!isNavExpan)}
+                  >
                     Dashboard
                   </Link>
                   {user?.user_type === 2 && (
-                    <Link to='/jobseeker' onClick={() => setIsNavExpan(!isNavExpan)}>
+                    <Link
+                      to="/jobseeker"
+                      onClick={() => setIsNavExpan(!isNavExpan)}
+                    >
                       Jobseeker
                     </Link>
                   )}
-                  <Link to='/dashboard/message' onClick={() => setIsNavExpan(!isNavExpan)}>
+                  <Link
+                    to="/dashboard/message"
+                    onClick={() => setIsNavExpan(!isNavExpan)}
+                  >
                     Message
                   </Link>
-                  <Link to='#' onClick={() => setLogoutModal(true)}>
+                  <Link to="#" onClick={() => handleLogout()}>
                     Logout
                   </Link>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
+          ) : (
+            <Link
+              to="/login"
+              className="btn btn-main join-us"
+              onClick={() => setIsNavExpan(!isNavExpan)}
+            >
+              Join Us
+            </Link>
           )}
         </div>
       </div>
@@ -194,7 +233,7 @@ const Header = () => {
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -15,7 +15,7 @@ import Spinner from "components/commonComponents/spinner/Spinner";
 import InfoBlock from "components/commonComponents/commonBlock/basicInfoBlock/InfoBlock";
 
 const RecruiterPostJob = () => {
-  document.title = "HourlyFinder | Post Job";
+  document.title = "JobGuru | Post Job";
 
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -26,8 +26,7 @@ const RecruiterPostJob = () => {
   const creatingJob = useSelector((state) => state.job.creatingJob);
   const createJobSuccess = useSelector((state) => state.job.createJobSuccess);
   const createJobFailed = useSelector((state) => state.job.createJobFailed);
-	const user = JSON.parse(window.localStorage.getItem("user"))
-
+  const user = JSON.parse(window.localStorage.getItem("user"));
 
   useEffect(() => {
     if (image) {
@@ -74,27 +73,30 @@ const RecruiterPostJob = () => {
     setImage(event.currentTarget.files[0]);
   };
 
-  const onSubmitHandle =async  (values) => {
-    console.log("Registration") 
+  const onSubmitHandle = async (values) => {
+    console.log("Registration");
     const url = "https://portal-production-7595.up.railway.app/job/";
-    const payload ={
+    const data = new FormData();
+
+    const payload = {
       title: values.title,
-    type: values.type,
-    salary: values.salary,
-    level: values.level,
-    vacancy: values.vacancy,
-    starting: values.starting,
-    duration: values.duration,
-    language: values.language,
-    skill: values.skill,
-    keyword: values.keyword,
-    location: values.location,
-    map: values.map,
-    overview: values.overview,
-    todo: values.todo,
-    user: user.id,
-    }
-    console.log(payload)
+      type: values.type,
+      salary: values.salary,
+      level: values.level,
+      vacancy: values.vacancy,
+      starting: values.starting,
+      duration: values.duration,
+      language: values.language,
+      skill: values.skill,
+      keyword: values.keyword,
+      location: values.location,
+      map: values.map,
+      overview: values.overview,
+      todo: values.todo,
+      user: user.id,
+      image: data.append("image", image),
+    };
+    console.log(payload);
     const requestOptions = {
       method: "POST",
       headers: {
@@ -104,8 +106,8 @@ const RecruiterPostJob = () => {
       body: JSON.stringify(payload),
     };
 
-        const response = await fetch(url, requestOptions);
-        const responseData = await response.json();
+    const response = await fetch(url, requestOptions);
+    const responseData = await response.json();
   };
 
   const validateHandle = (values) => {
@@ -483,7 +485,7 @@ const RecruiterPostJob = () => {
                                     }
                                     value={values.location}
                                     onChange={handleChange}
-                                    placeholder="e.g. Uttara"
+                                    placeholder="e.g. Islamabad"
                                   />
                                   {touched.location && errors.location ? (
                                     <div className="invalid-feedback">
@@ -546,7 +548,7 @@ const RecruiterPostJob = () => {
                                     type="text"
                                     value={values.language}
                                     onChange={handleChange}
-                                    placeholder="e.g. Bangla"
+                                    placeholder="e.g. Urdu"
                                   />
                                 </div>
                               </div>
