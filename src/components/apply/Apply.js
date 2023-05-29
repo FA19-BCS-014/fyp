@@ -16,8 +16,7 @@ const Apply = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url:
-        "https://portal-production-7595.up.railway.app/job/get-jobs?id=" + id,
+      url: "https://ttfyp-production.up.railway.app/job/get-jobs?id=" + id,
       headers: {},
     };
 
