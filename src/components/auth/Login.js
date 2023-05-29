@@ -8,6 +8,7 @@ import {
 } from "../../redux/actionCreators/authActionCreators";
 import Spinner from "../commonComponents/spinner/Spinner";
 import LeftContent from "./commonAuth/LeftContent";
+import axios from "axios";
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -38,7 +39,7 @@ const Login = (props) => {
 
   const onSubmitHandle = async (values) => {
     console.log("Login");
-    const url = "https://portal-production-7595.up.railway.app/users/login/";
+    const url = "https://ttfyp-production.up.railway.app/users/login/";
     const payload = {
       email: values.email,
       password: values.password,
@@ -62,6 +63,35 @@ const Login = (props) => {
       navigate("/dashboard");
     }
   };
+
+  // const onSubmitHandle = async (values) => {
+  //   console.log("Login");
+  //   const url = "https://ttfyp-production.up.railway.app/users/login/";
+  //   const payload = {
+  //     email: values.email,
+  //     password: values.password,
+  //   };
+  //   console.log(payload);
+  //   const config = {
+  //     headers: { "Content-Type": "application/json" },
+  //   };
+
+  //   try {
+  //     const response = await axios.post(url, payload, config);
+  //     const responseData = response.data;
+
+  //     if (responseData.error === false && responseData.data.token) {
+  //       localStorage.setItem("token", responseData.data.token);
+  //       localStorage.setItem("user", JSON.stringify(responseData.data));
+  //       localStorage.setItem("userId", JSON.stringify(responseData.data.id));
+  //     }
+  //     if (responseData.error === false) {
+  //       navigate("/dashboard");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   const validateHandle = (values) => {
     const errors = {};

@@ -20,6 +20,7 @@ import {
 import FormField from "../commonComponents/formik/FormField";
 import Spinner from "../commonComponents/spinner/Spinner";
 import LeftContent from "./commonAuth/LeftContent";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -47,9 +48,39 @@ const Register = () => {
     accountType: "",
   };
 
+  // const onSubmitHandle = async (values) => {
+  //   console.log("Registration");
+  //   const url = "https://portal-production-7595.up.railway.app/users/signup/";
+  //   const payload = {
+  //     email: values.email,
+  //     password: values.password,
+  //     first_name: values.firstName,
+  //     last_name: values.lastName,
+  //     user_type: values.accountType,
+  //   };
+  //   console.log(payload);
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(payload),
+  //   };
+
+  //   const response = await fetch(url, requestOptions);
+  //   const responseData = await response.json();
+  //   // console.log('resss:',responseData.data)
+  //   if (responseData.error === false && responseData.data.token) {
+  //     localStorage.setItem("token", responseData.data.token);
+  //     localStorage.setItem("user", responseData.data.first_name);
+  //     localStorage.setItem("test", JSON.stringify(responseData.data));
+  //   }
+
+  //   navigate("/login");
+  //   return responseData;
+  // };
+
   const onSubmitHandle = async (values) => {
     console.log("Registration");
-    const url = "https://portal-production-7595.up.railway.app/users/signup/";
+    const url = "https://ttfyp-production.up.railway.app/users/signup/";
     const payload = {
       email: values.email,
       password: values.password,
@@ -58,23 +89,25 @@ const Register = () => {
       user_type: values.accountType,
     };
     console.log(payload);
-    const requestOptions = {
-      method: "POST",
+    const config = {
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
     };
 
-    const response = await fetch(url, requestOptions);
-    const responseData = await response.json();
-    // console.log('resss:',responseData.data)
-    if (responseData.error === false && responseData.data.token) {
-      localStorage.setItem("token", responseData.data.token);
-      localStorage.setItem("user", responseData.data.first_name);
-      localStorage.setItem("test", JSON.stringify(responseData.data));
-    }
+    try {
+      const response = await axios.post(url, payload, config);
+      const responseData = response.data;
 
-    navigate("/login");
-    return responseData;
+      if (responseData.error === false && responseData.data.token) {
+        localStorage.setItem("token", responseData.data.token);
+        localStorage.setItem("user", responseData.data.first_name);
+        localStorage.setItem("test", JSON.stringify(responseData.data));
+      }
+
+      navigate("/login");
+      return responseData;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const validateHandle = (values) => {

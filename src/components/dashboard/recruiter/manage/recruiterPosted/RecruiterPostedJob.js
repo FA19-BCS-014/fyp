@@ -8,10 +8,10 @@ import NoItem from "components/commonComponents/noItem/NoItem";
 
 const RecruiterPostedJob = () => {
   document.title = "HourlyFinder | Manage Jobs";
-  const [recruiterJobs, setRecruiterJobs] = useState([])
+  const [recruiterJobs, setRecruiterJobs] = useState([]);
 
   useEffect(async () => {
-    const url = "https://portal-production-7595.up.railway.app/job/";
+    const url = "https://ttfyp-production.up.railway.app/job/";
     const requestOptions = {
       // method: "POST",
       method: "GET",
@@ -23,7 +23,7 @@ const RecruiterPostedJob = () => {
     };
     const response = await fetch(url, requestOptions);
     const responseData = await response.json();
-	setRecruiterJobs(responseData.data)
+    setRecruiterJobs(responseData.data);
   }, []);
 
   return (

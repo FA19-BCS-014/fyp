@@ -33,7 +33,7 @@ const ApplyForm = ({ id }) => {
   // }
   const onSubmitHandle = async (values) => {
     console.log("Registration");
-    const url = "https://portal-production-7595.up.railway.app/job/apply";
+    const url = "http://ttfyp-production.up.railway.app/job/apply";
     const data = new FormData();
 
     const payload = {

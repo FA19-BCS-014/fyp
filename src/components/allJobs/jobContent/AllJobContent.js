@@ -18,7 +18,7 @@ const AllJobContent = ({ finalSearch }) => {
   const { title, location, type } = finalSearch ? finalSearch : [];
 
   // useEffect(async () => {
-  //   const url = "https://portal-production-7595.up.railway.app/job/get-jobs";
+  //   const url = "http://ttfyp-production.up.railway.app/job/get-jobs";
   //   const requestOptions = {
   //     method: "GET",
   //     headers: {
@@ -32,7 +32,7 @@ const AllJobContent = ({ finalSearch }) => {
   // }, []);
 
   useEffect(() => {
-    const url = "https://portal-production-7595.up.railway.app/job/get-jobs";
+    const url = "https://ttfyp-production.up.railway.app/job/get-jobs";
     const config = {
       headers: {
         "Content-Type": "application/json",

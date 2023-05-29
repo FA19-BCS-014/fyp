@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import Spinner from "components/commonComponents/spinner/Spinner";
 import InfoBlock from "components/commonComponents/commonBlock/basicInfoBlock/InfoBlock";
+import axios from "axios";
 
 const RecruiterPostJob = () => {
   document.title = "JobGuru | Post Job";
@@ -75,7 +76,7 @@ const RecruiterPostJob = () => {
 
   const onSubmitHandle = async (values) => {
     console.log("Registration");
-    const url = "https://portal-production-7595.up.railway.app/job/";
+    const url = "https://ttfyp-production.up.railway.app/job/";
     const data = new FormData();
 
     const payload = {
